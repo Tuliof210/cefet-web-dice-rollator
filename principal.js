@@ -9,4 +9,4 @@
 // #recipienteResultados: "Container" do elemento dos resultados:
 //	 - você deve torná-lo visível removendo a classe "oculto" dele
 // .quantidade: todos os input[type=number] com a quantidade de dados a serem rolados
-// #quantidadeD{4,6,8,10,12,20}: um ID para cada input[type=number] com a quantidade
+// #quantidadeD{4,6,8,10,12,20}: um ID para cada input[type=number] com a quantidade teste
