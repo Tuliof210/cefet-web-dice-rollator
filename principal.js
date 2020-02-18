@@ -1,12 +1,51 @@
-// Faça seu exercício neste arquivo
+let dados = document.querySelectorAll('.dado')
+
+let d4 = document.querySelector('#quantidadeD4')
+let d6 = document.querySelector('#quantidadeD6')
+let d8 = document.querySelector('#quantidadeD8')
+let d10 = document.querySelector('#quantidadeD10')
+let d12 = document.querySelector('#quantidadeD12')
+let d20 = document.querySelector('#quantidadeD20')
+
+let somatorio;
+let result;
+
+var rolar = document.querySelector('#rolar')
+
+var exibir = document.querySelector('#recipienteResultados')
+
+rolar.addEventListener('click', function(e) {
+
+    result = '';
+    somatorio = 0;
+
+    row(4, d4.value)
+    row(6, d6.value)
+    row(8, d8.value)
+    row(10, d10.value)
+    row(12, d12.value)
+    row(20, d20.value)
+
+    result = result.trim();
+    result += "="
+    result = result.replace(' +=', ` = ${somatorio}`)
+
+    exibir.classList.remove('oculto');
+
+    let show = document.querySelector('#resultado').innerHTML = result
+
+    console.log(result)
+    console.log(somatorio)
+})
 
 
-// Alguns elementos importantes na página (index.html):
-// #rolar: Botão rolar
-//	 - você deve atribuir um handler de evento a ele para fazer o cálculo da rolagem dos dados
-// #resultado: Elemento cujo conteúdo deve ser uma string com os resultados
-//	 - você deve definir seu conteúdo (.innerHTML) com a string de resultados
-// #recipienteResultados: "Container" do elemento dos resultados:
-//	 - você deve torná-lo visível removendo a classe "oculto" dele
-// .quantidade: todos os input[type=number] com a quantidade de dados a serem rolados
-// #quantidadeD{4,6,8,10,12,20}: um ID para cada input[type=number] com a quantidade teste
+function row(max, quant) {
+
+    for (let i = 0; i < quant; i++) {
+
+        let resultado = Math.ceil(Math.random() * max);
+        somatorio += resultado;
+        result += resultado;
+        result += ' + '
+    }
+}
